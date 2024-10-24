@@ -34,4 +34,4 @@ app.get("/", (req, res) => {
 	res.send("API is running...");
 });
 
-server.listen(PORT, () => console.log(`Server started at http://localhost:${PORT}`))
+server.listen(PORT, () => console.log(`Server started at ${process.env.VITE_API_URL}`))
