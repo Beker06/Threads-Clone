@@ -15,7 +15,8 @@ const HomePage = () => {
 			setLoading(true);
 			setPosts([]);
 			try {
-				const res = await fetch("/api/posts/feed");
+				const API_URL = import.meta.env.VITE_API_URL;
+				const res = await fetch(`${API_URL}/api/posts/feed`);
 				const data = await res.json();
 				if (data.error) {
 					showToast("Error", data.error, "error");

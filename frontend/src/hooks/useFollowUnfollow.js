@@ -18,7 +18,8 @@ const useFollowUnfollow = (user) => {
 
 		setUpdating(true);
 		try {
-			const res = await fetch(`/api/users/follow/${user._id}`, {
+			const API_URL = import.meta.env.VITE_API_URL;
+			const res = await fetch(`${API_URL}/api/users/follow/${user._id}`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
