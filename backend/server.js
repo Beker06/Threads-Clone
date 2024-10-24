@@ -1,5 +1,4 @@
-import path from "path";
-import express from "express";
+import cors from "cors";  // Importar CORSimport express from "express";
 import dotenv from "dotenv"
 import connectDB from "./db/connectDB.js";
 import cookieParser from "cookie-parser";
@@ -21,6 +20,11 @@ cloudinary.config({
 	api_key: process.env.CLOUDINARY_API_KEY,
 	api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
+app.use(cors({
+	origin: process.env.CLIENT_URL || "http://localhost:3000",  // Permitir solicitudes solo desde tu frontend
+	credentials: true,  // Permitir cookies y autenticación
+}));
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }))
