@@ -58,7 +58,8 @@ const CreatePost = () => {
 	const handleCreatePost = async () => {
 		setLoading(true);
 		try {
-			const res = await fetch("/api/posts/create", {
+			const API_URL = import.meta.env.VITE_API_URL;
+			const res = await fetch(`${API_URL}/api/posts/create`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

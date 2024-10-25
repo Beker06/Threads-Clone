@@ -21,7 +21,8 @@ const UserPage = () => {
 			if (!user) return;
 			setFetchingPosts(true);
 			try {
-				const res = await fetch(`/api/posts/user/${username}`);
+				const API_URL = import.meta.env.VITE_API_URL;
+				const res = await fetch(`${API_URL}/api/posts/user/${username}`);
 				const data = await res.json();
 				console.log(data);
 				setPosts(data);

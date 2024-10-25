@@ -42,8 +42,9 @@ const PostPage = () => {
 	const handleDeletePost = async () => {
 		try {
 			if (!window.confirm("Are you sure you want to delete this post?")) return;
-
-			const res = await fetch(`/api/posts/${currentPost._id}`, {
+			
+			const API_URL = import.meta.env.VITE_API_URL;
+			const res = await fetch(`${API_URL}/api/posts/${currentPost._id}`, {
 				method: "DELETE",
 			});
 			const data = await res.json();

@@ -37,7 +37,8 @@ const Actions = ({ post }) => {
 		if (isLiking) return;
 		setIsLiking(true);
 		try {
-			const res = await fetch("/api/posts/like/" + post._id, {
+			const API_URL = import.meta.env.VITE_API_URL;
+			const res = await fetch(`${API_URL}/api/posts/like/` + post._id, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
@@ -79,7 +80,8 @@ const Actions = ({ post }) => {
 		if (isReplying) return;
 		setIsReplying(true);
 		try {
-			const res = await fetch("/api/posts/reply/" + post._id, {
+			const API_URL = import.meta.env.VITE_API_URL;
+			const res = await fetch(API_URL + "/api/posts/reply/" + post._id, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",

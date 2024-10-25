@@ -15,7 +15,8 @@ export const SocketContextProvider = ({ children }) => {
 	const user = useRecoilValue(userAtom);
 
 	useEffect(() => {
-		const socket = io("/", {
+		const API_URL = import.meta.env.VITE_API_URL;
+		const socket = io(`${API_URL}`, {
 			query: {
 				userId: user?._id,
 			},
@@ -28,6 +29,7 @@ export const SocketContextProvider = ({ children }) => {
 		});
 		return () => socket && socket.close();
 	}, [user?._id]);
+	console.log(onlineUsers, "online users")
 
 	return <SocketContext.Provider value={{ socket, onlineUsers }}>{children}</SocketContext.Provider>;
 };

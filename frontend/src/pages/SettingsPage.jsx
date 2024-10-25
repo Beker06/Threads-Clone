@@ -10,7 +10,8 @@ export const SettingsPage = () => {
 		if (!window.confirm("Are you sure you want to freeze your account?")) return;
 
 		try {
-			const res = await fetch("/api/users/freeze", {
+			const API_URL = import.meta.env.VITE_API_URL;
+			const res = await fetch(`${API_URL}/api/users/freeze`, {
 				method: "PUT",
 				headers: { "Content-Type": "application/json" },
 			});

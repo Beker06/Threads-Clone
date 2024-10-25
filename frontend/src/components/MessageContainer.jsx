@@ -90,7 +90,8 @@ const MessageContainer = () => {
 			setMessages([]);
 			try {
 				if (selectedConversation.mock) return;
-				const res = await fetch(`/api/messages/${selectedConversation.userId}`);
+				const API_URL = import.meta.env.VITE_API_URL;
+				const res = await fetch(`${API_URL}/api/messages/${selectedConversation.userId}`);
 				const data = await res.json();
 				if (data.error) {
 					showToast("Error", data.error, "error");

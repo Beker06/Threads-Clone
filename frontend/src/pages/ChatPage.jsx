@@ -45,7 +45,8 @@ const ChatPage = () => {
 	useEffect(() => {
 		const getConversations = async () => {
 			try {
-				const res = await fetch("/api/messages/conversations");
+				const API_URL = import.meta.env.VITE_API_URL;
+				const res = await fetch(`${API_URL}/api/messages/conversations`);
 				const data = await res.json();
 				if (data.error) {
 					showToast("Error", data.error, "error");
