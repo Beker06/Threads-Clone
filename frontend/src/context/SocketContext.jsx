@@ -21,7 +21,6 @@ export const SocketContextProvider = ({ children }) => {
 				userId: user?._id,
 			},
 			withCredentials: true,
-			transports: ["websocket"],
 		});
 
 		setSocket(socket);
