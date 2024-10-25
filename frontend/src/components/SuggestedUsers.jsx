@@ -12,7 +12,8 @@ const SuggestedUsers = () => {
 		const getSuggestedUsers = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch("/api/users/suggested");
+                const API_URL = import.meta.env.VITE_API_URL;
+				const res = await fetch(`${API_URL}/api/users/suggested`);
 				const data = await res.json();
 				if (data.error) {
 					showToast("Error", data.error, "error");
