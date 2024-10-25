@@ -42,6 +42,7 @@ const MessageInput = ({ setMessages }) => {
 			const API_URL = import.meta.env.VITE_API_URL;
 			const res = await fetch(`${API_URL}/api/messages`, {
 				method: "POST",
+				credentials: "include",
 				headers: {
 					"Content-Type": "application/json",
 				},

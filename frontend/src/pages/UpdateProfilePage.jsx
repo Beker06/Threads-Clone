@@ -41,6 +41,7 @@ export default function UpdateProfilePage() {
 			const API_URL = import.meta.env.VITE_API_URL;
 			const res = await fetch(`${API_URL}/api/users/update/${user._id}`, {
 				method: "PUT",
+				credentials: "include",
 				headers: {
 					"Content-Type": "application/json",
 				},

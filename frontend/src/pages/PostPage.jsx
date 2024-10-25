@@ -46,6 +46,7 @@ const PostPage = () => {
 			const API_URL = import.meta.env.VITE_API_URL;
 			const res = await fetch(`${API_URL}/api/posts/${currentPost._id}`, {
 				method: "DELETE",
+				credentials: "include",
 			});
 			const data = await res.json();
 			if (data.error) {

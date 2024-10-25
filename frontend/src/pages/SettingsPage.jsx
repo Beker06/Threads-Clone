@@ -13,6 +13,7 @@ export const SettingsPage = () => {
 			const API_URL = import.meta.env.VITE_API_URL;
 			const res = await fetch(`${API_URL}/api/users/freeze`, {
 				method: "PUT",
+				credentials: "include",
 				headers: { "Content-Type": "application/json" },
 			});
 			const data = await res.json();

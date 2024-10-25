@@ -40,6 +40,7 @@ const Actions = ({ post }) => {
 			const API_URL = import.meta.env.VITE_API_URL;
 			const res = await fetch(`${API_URL}/api/posts/like/` + post._id, {
 				method: "PUT",
+				credentials: "include",
 				headers: {
 					"Content-Type": "application/json",
 				},
