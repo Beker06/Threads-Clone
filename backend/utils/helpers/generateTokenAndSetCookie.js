@@ -10,7 +10,6 @@ const generateTokenAndSetCookie = (userId, res) => {
 		secure: process.env.NODE_ENV === "production",
 		sameSite: "None",   
 		maxAge: 15 * 24 * 60 * 60 * 1000,
-		sameSite: "strict",
 	});
 
 	return token;
